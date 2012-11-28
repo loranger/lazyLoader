@@ -38,7 +38,8 @@ load.jquery(function(){
 });
 ```
 
-TODO : Handle an array of assets to be loaded, in order to simplify calls :
+TODO : 
+Handle an array of assets to be loaded, in order to simplify calls :
 ```javascript
 var load = new lazyLoader();
 
@@ -46,3 +47,4 @@ load.assets(['/js/scripts.js', '/js/forms.js', '/css/extra-styles.css'], functio
 	alert('Ready, steady, go');
 });
 ```
+Rewrite everything in order to lazyLoad lazyLoad itself
