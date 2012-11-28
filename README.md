@@ -63,9 +63,7 @@ function lazyLoader()
 		{
 			callback.call();
 		}
-	}
-
-
+	};
 }
 ```
 
