@@ -100,7 +100,7 @@ TODO : Handle an array of assets to be loaded, in order to simplify calls :
 ```javascript
 var load = new lazyLoader();
 
-load.js(['/js/scripts.js', '/js/forms.js', '/css/extra-styles.css'], function(){
+load.assets(['/js/scripts.js', '/js/forms.js', '/css/extra-styles.css'], function(){
 	alert('Ready, steady, go');
 });
 ```
