@@ -27,6 +27,10 @@ load.js('http://www.site.com/myscript.js', myCallback);
 load.css('http://www.csszengarden.com/zengarden-sample.css', function(){
 	alert('I love Feng-Shui');
 });
+
+load.image('http://www.w3.org/Icons/WWW/w3c_home_nb.png', function(){
+	alert('Logo loaded...');
+});
 ```
 
 You can even "lazyLoad" jQuery in order to write less and do more :
@@ -38,6 +42,9 @@ load.jquery(function(){
 	$('body').append('<h1>jQuery is now avalaible</h1>');
 	load.js('/js/fireworks.js', function(){
 		alert('Kaboom');
+	});
+	load.image('http://www.w3.org/Icons/WWW/w3c_home_nb.png', function(){
+		$('body').append($(this));
 	});
 });
 ```
@@ -61,6 +68,9 @@ lzl.push(['http://www.csszengarden.com/zengarden-sample.css', function(){
 
 lzl.push(['jQuery', function(){
 	$('body').append('<h1>jQuery is now avalaible</h1>');
+	lzl.image('http://www.w3.org/Icons/WWW/w3c_home_nb.png', function(){
+		$('body').append($(this));
+	});
 }]);
 
 // Then paste the following anonymous function (make sure you replaced the dummy url by the real url you use to store lazyLoader.js script)
