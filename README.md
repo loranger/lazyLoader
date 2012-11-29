@@ -60,7 +60,7 @@ lzl.push(['http://www.csszengarden.com/zengarden-sample.css', function(){
 }]);
 
 lzl.push(['jQuery', function(){
-	alert('jQuery is ready');
+	$('body').append('<h1>jQuery is now avalaible</h1>');
 }]);
 
 // Then paste the following anonymous function (make sure you replaced the dummy url by the real url you use to store lazyLoader.js script)
