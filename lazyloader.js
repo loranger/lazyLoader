@@ -53,18 +53,6 @@ function lazyLoader()
 		this.asset('link', src, callback);
 	};
 
-	this.auto = function(src, callback) {
-		var type;
-		switch( this.getExtension(src) )
-		{
-			case 'css':
-				type = 'link';
-			case 'js':
-				type = 'script;'
-		};
-		return this.asset(type, src, callback);
-	};
-
 	this.jquery = function(callback) {
 		if ( !window.jQuery )
 		{
@@ -74,6 +62,23 @@ function lazyLoader()
 		{
 			callback.call();
 		}
+	};
+
+	this.auto = function(src, callback) {
+		if (src.toLowerCase() == 'jquery') {
+			return this.jquery(callback);
+		}
+		else {
+			var type;
+			switch( this.getExtension(src) )
+			{
+				case 'css':
+					type = 'link';
+				case 'js':
+					type = 'script';
+			};
+			return this.asset(type, src, callback);
+		};
 	};
 }
 
