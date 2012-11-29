@@ -19,6 +19,13 @@ function lazyLoader()
 		return element;
 	};
 
+	this.getExtension = function(url) {
+		if (url.indexOf('?') >= 0) {
+			url = url.substring( 0, url.indexOf('?') );
+		};
+		return url.split('.').pop();
+	};
+
 	this.asset = function(type, source, callback) {
 		var element = this.createElement(type, source);
 		var uid = source.replace(/[^a-z0-9]/ig, '');
@@ -46,6 +53,18 @@ function lazyLoader()
 		this.asset('link', src, callback);
 	};
 
+	this.auto = function(src, callback) {
+		var type;
+		switch( this.getExtension(src) )
+		{
+			case 'css':
+				type = 'link';
+			case 'js':
+				type = 'script;'
+		};
+		return this.asset(type, src, callback);
+	};
+
 	this.jquery = function(callback) {
 		if ( !window.jQuery )
 		{
@@ -57,3 +76,10 @@ function lazyLoader()
 		}
 	};
 }
+
+if ( window.lzl ) {
+	for (var i = 0; i < lzl.length; i++) {
+		var args = lzl[i];
+		new lazyLoader().auto(args[0], args[1]);
+	};
+};
