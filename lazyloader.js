@@ -83,8 +83,10 @@ function lazyLoader()
 }
 
 if ( window.lzl ) {
+	var loader = new lazyLoader();
 	for (var i = 0; i < lzl.length; i++) {
 		var args = lzl[i];
-		new lazyLoader().auto(args[0], args[1]);
+		loader.auto(args[0], args[1]);
 	};
+	windows.lzl = loader;
 };
