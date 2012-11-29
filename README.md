@@ -3,12 +3,13 @@ lazyLoader
 
 A Javascript snippet for assets lazy loading
 
-
+Getting Started
+---------------
 Embed loazyloader.js in your webpage :
 ```html
 <script src="lazyloader.js" type="text/javascript" charset="utf-8"></script>
 ```
-Note : You can also paste the whole lazyloader.js' code directly in your webpage header in order to make it instantly available.
+Note : You can also paste the whole lazyloader.js' code directly in your webpage header in order to make it instantly available, or you can use the alternative *autoload method*
 
 Now you can lazyLoad your assets :
 
@@ -39,6 +40,11 @@ load.jquery(function(){
 });
 ```
 
+***
+
+
+Autoload method
+---------------
 Another way to use lazyLoader is to defer loading, and kind of lazyLoad the lazyLoader itself :
 ```javascript
 // Define an array named lzl (sorry you cannot change this name)
@@ -64,7 +70,10 @@ lzl.push(['jQuery', function(){
 ```
 That's all : lazyLoader will automatically loaded and then will lazyLoad your assets as requested.
 
-TODO : 
+***
+
+TODO
+----
 Handle an array of assets to be loaded, in order to simplify calls :
 ```javascript
 var load = new lazyLoader();
