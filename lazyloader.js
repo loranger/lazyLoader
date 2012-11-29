@@ -6,6 +6,10 @@ function lazyLoader()
 		var element = document.createElement(type);
 		switch(type)
 		{
+			case 'img':
+				element.src = source;
+				element.alt = source;
+				break;
 			case 'script':
 				element.type = 'text/javascript';
 				element.src = source;
@@ -45,6 +49,10 @@ function lazyLoader()
 		this.head.appendChild(element);
 	};
 
+	this.image = function(src, callback) {
+		this.asset('img', src, callback);
+	};
+
 	this.js = function(src, callback) {
 		this.asset('script', src, callback);
 	};
@@ -64,7 +72,7 @@ function lazyLoader()
 		}
 	};
 
-	this.auto = function(src, callback) {
+	this.load = function(src, callback) {
 		if (src.toLowerCase() == 'jquery') {
 			return this.jquery(callback);
 		}
@@ -72,10 +80,23 @@ function lazyLoader()
 			var type;
 			switch( this.getExtension(src) )
 			{
+				case 'jpg':
+				case 'jpeg':
+				case 'png':
+				case 'gif':
+				case 'apng':
+				case 'svg':
+				case 'bmp':
+				case 'ico':
+				case 'webp':
+					type = 'img';
+					break;
 				case 'css':
 					type = 'link';
+					break;
 				case 'js':
 					type = 'script';
+					break;
 			};
 			return this.asset(type, src, callback);
 		};
@@ -86,7 +107,7 @@ if ( window.lzl ) {
 	var loader = new lazyLoader();
 	for (var i = 0; i < lzl.length; i++) {
 		var args = lzl[i];
-		loader.auto(args[0], args[1]);
+		loader.load(args[0], args[1]);
 	};
 	window.lzl = loader;
 };
