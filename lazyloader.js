@@ -88,5 +88,5 @@ if ( window.lzl ) {
 		var args = lzl[i];
 		loader.auto(args[0], args[1]);
 	};
-	windows.lzl = loader;
+	window.lzl = loader;
 };
