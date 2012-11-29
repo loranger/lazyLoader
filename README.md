@@ -3,13 +3,15 @@ lazyLoader
 
 A Javascript snippet for assets lazy loading
 
+***
+
 Getting Started
 ---------------
 Embed loazyloader.js in your webpage :
 ```html
 <script src="lazyloader.js" type="text/javascript" charset="utf-8"></script>
 ```
-Note : You can also paste the whole lazyloader.js' code directly in your webpage header in order to make it instantly available, or you can use the alternative *autoload method*
+Note : You can also paste the whole lazyloader.js' code directly in your webpage header in order to make it instantly available, or you can use the alternative **autoload method**
 
 Now you can lazyLoad your assets :
 
