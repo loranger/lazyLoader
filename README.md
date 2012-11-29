@@ -3,6 +3,7 @@ lazyLoader
 
 A Javascript snippet for assets lazy loading
 
+
 Embed loazyloader.js in your webpage :
 ```html
 <script src="lazyloader.js" type="text/javascript" charset="utf-8"></script>
@@ -38,6 +39,31 @@ load.jquery(function(){
 });
 ```
 
+Another way to use lazyLoader is to defer loading, and kind of lazyLoad the lazyLoader itself :
+```javascript
+// Define an array named lzl (sorry you cannot change this name)
+var lzl = lzl || [];
+
+// Populate it with two dimensionnal arrays (the first dimension is the asset url, the second one is the callback)
+lzl.push(['http://www.site.com/myscript.js', myCallback]);
+
+lzl.push(['http://www.csszengarden.com/zengarden-sample.css', function(){
+	alert('I love Feng-Shui');
+}]);
+
+lzl.push(['jQuery', function(){
+	alert('jQuery is ready');
+}]);
+
+// Then paste the following anonymous function (make sure you replaced the dummy url by the real url you use to store lazyLoader.js script)
+(function() {
+	var ll = document.createElement('script'); ll.type = 'text/javascript';
+	ll.src = 'http://cdn.my-website.com/js/lazyLoader.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ll, s);
+})();
+```
+That's all : lazyLoader will automatically loaded and then will lazyLoad your assets as requested.
+
 TODO : 
 Handle an array of assets to be loaded, in order to simplify calls :
 ```javascript
@@ -47,4 +73,3 @@ load.assets(['/js/scripts.js', '/js/forms.js', '/css/extra-styles.css'], functio
 	alert('Ready, steady, go');
 });
 ```
-Rewrite everything in order to lazyLoad lazyLoad itself
