@@ -31,6 +31,14 @@ load.css('http://www.csszengarden.com/zengarden-sample.css', function(){
 load.image('http://www.w3.org/Icons/WWW/w3c_home_nb.png', function(){
 	alert('Logo loaded...');
 });
+
+load.audio('http://html5demo.braincracking.org/demo/media/sample.ogg', function(){
+	alert('Groovy baby !');
+});
+
+load.video('http://html5demo.braincracking.org/demo/media/windowsill.ogv', function(){
+	alert('Play time !');
+});
 ```
 
 You can even "lazyLoad" jQuery in order to write less and do more :

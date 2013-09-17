@@ -19,6 +19,10 @@ function lazyLoader()
 				element.type = 'text/css';
 				element.href = source;
 				break;
+			case 'audio':
+			case 'video':
+				element.src = source;
+				break;
 		}
 		return element;
 	};
@@ -26,7 +30,7 @@ function lazyLoader()
 	this.getExtension = function(url) {
 		if (url.indexOf('?') >= 0) {
 			url = url.substring( 0, url.indexOf('?') );
-		};
+		}
 		return url.split('.').pop();
 	};
 
@@ -40,7 +44,7 @@ function lazyLoader()
 					window[uid] = true;
 					callback();
 				}
-			}
+			};
 		}
 		else
 		{
@@ -59,6 +63,14 @@ function lazyLoader()
 
 	this.css = function(src, callback) {
 		this.asset('link', src, callback);
+	};
+
+	this.audio = function(src, callback) {
+		this.asset('audio', src, callback);
+	};
+
+	this.video = function(src, callback) {
+		this.asset('video', src, callback);
 	};
 
 	this.jquery = function(callback) {
@@ -97,17 +109,37 @@ function lazyLoader()
 				case 'js':
 					type = 'script';
 					break;
-			};
+				case 'oga':
+				case 'wav':
+				case 'mp3':
+				case 'aac':
+				case 'weba':
+				case 'aac':
+				case 'aiff':
+				case 'au':
+				case 'flac':
+				case 'midi':
+				case 'wma':
+					type = 'audio';
+					break;
+				case 'ogv':
+				case 'ogg':
+				case 'ogx':
+				case 'mp4':
+				case 'webm':
+					type = 'video';
+					break;
+			}
 			return this.asset(type, src, callback);
-		};
+		}
 	};
 }
 
 if ( window.lzl ) {
 	var loader = new lazyLoader();
-	for (var i = 0; i < lzl.length; i++) {
-		var args = lzl[i];
+	for (var i = 0; i < window.lzl.length; i++) {
+		var args = window.lzl[i];
 		loader.load(args[0], args[1]);
-	};
+	}
 	window.lzl = loader;
-};
+}
