@@ -27,6 +27,25 @@ function lazyLoader()
 		return element;
 	};
 
+	this.alreadyLoaded = function(type, source) {
+		var items = [];
+		switch(type)
+		{
+			case 'script':
+				items = document.getElementsByTagName('script');
+				break;
+			case 'link':
+				items = document.styleSheets;
+				break;
+		}
+		for (var i = items.length; i--;) {
+			if (items[i].src == source) {
+				return true;
+			}
+		}
+		return false;
+	};
+
 	this.getExtension = function(url) {
 		if (url.indexOf('?') >= 0) {
 			url = url.substring( 0, url.indexOf('?') );
@@ -35,8 +54,14 @@ function lazyLoader()
 	};
 
 	this.asset = function(type, source, callback) {
-		var element = this.createElement(type, source);
 		var uid = source.replace(/[^a-z0-9]/ig, '');
+		if(window[uid] || this.alreadyLoaded(type, source))
+		{
+			window[uid] = true;
+			callback();
+			return;
+		}
+		var element = this.createElement(type, source);
 		if ( element.readyState ) // IE 6 & 7
 		{
 			element.onreadystatechange = function() {
