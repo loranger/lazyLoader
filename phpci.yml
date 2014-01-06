@@ -1,6 +1,12 @@
 build_settings:
     ignore:
         - "tests"
+setup:
+    shell:
+        command: "npm install"
 test:
-    grunt:
-        task: "build"
+    grunt
+complete:
+    clean_build:
+        remove:
+            - node_modules
