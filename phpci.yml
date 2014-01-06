@@ -1,0 +1,6 @@
+build_settings:
+    ignore:
+        - "tests"
+test:
+    grunt:
+        task: "build"
