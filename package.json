@@ -1,0 +1,26 @@
+{
+  "name": "lazyLoader",
+  "version": "0.1.0",
+  "description": "A Javascript snippet for assets lazy loading",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "*"
+  },
+  "devDependencies": {
+      "grunt-contrib-jshint": "*",
+      "grunt-contrib-uglify": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/loranger/lazyLoader.git"
+  },
+  "author": "loranger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loranger/lazyLoader/issues"
+  },
+  "homepage": "https://github.com/loranger/lazyLoader"
+}
