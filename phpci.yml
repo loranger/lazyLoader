@@ -3,7 +3,7 @@ build_settings:
         - "tests"
 setup:
 test:
-    grunt
+    gulp
 success:
     clean_build:
         remove:
