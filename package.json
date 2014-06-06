@@ -6,11 +6,11 @@
     "gulp": "~3.2.4"
   },
   "devDependencies": {
-    "gulp": "~3.2.4",
+    "gulp": "^3.2.5",
+    "gulp-concat": "~2.1.7",
     "gulp-jshint": "~1.3.4",
-    "gulp-uglify": "*",
     "gulp-rename": "*",
-    "gulp-concat": "~2.1.7"
+    "gulp-uglify": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

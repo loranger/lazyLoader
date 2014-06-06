@@ -39,7 +39,7 @@ function lazyLoader()
 				break;
 		}
 		for (var i = items.length; i--;) {
-			if (items[i].src == source) {
+			if (items[i].src.replace(/^.*\/\//ig, '//') == source.replace(/^.*\/\//ig, '//') ) {
 				return true;
 			}
 		}

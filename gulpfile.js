@@ -20,11 +20,9 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('.'))
 });
 
-gulp.task('default', function(){
-    gulp.run('lint', 'scripts');
-    
-    // Watch files and run tasks if they change
-    gulp.watch('./*.js', function(event) {
-        gulp.run('scripts');
-    });
+// Watch files and run tasks if they change
+gulp.task('watch', function(){
+    gulp.watch('./*.js', ['scripts']);
 });
+
+gulp.task('default', ['lint', 'scripts', 'watch']);
